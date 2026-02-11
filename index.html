@@ -1,1 +1,54 @@
+<!-- =========================
+Option A: Statische Chat-Seite (GitHub Pages) + dein API Gateway
+Datei: index.html
+So nutzt du es:
+1) Lege ein GitHub Repo an (z.B. wagp-jobbot-ui)
+2) Committe index.html, style.css, app.js
+3) Settings -> Pages -> Deploy from branch -> main/(root)
+4) Trage unten in app.js deine API_URL ein
+========================= -->
 
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WAGP JobBot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">JB</div>
+        <div>
+          <div class="title">WAGP JobBot</div>
+          <div class="subtitle">Werkstudent & Praktikum (NRW)</div>
+        </div>
+      </div>
+      <button id="resetBtn" class="ghost">Reset</button>
+    </header>
+
+    <main id="chat" class="chat"></main>
+
+    <section class="composer">
+      <div class="chips">
+        <button class="chip" data-prompt="Werkstudent um Gummersbach, Umkreis 30 km, 18 Stunden, keywords qualitätsmanagement">Beispiel: QM</button>
+        <button class="chip" data-prompt="Werkstudent um Gummersbach, Umkreis 50 km, 16 Stunden, keywords projektmanagement">Beispiel: PM</button>
+        <button class="chip" data-prompt="Praktikum um Gummersbach, Umkreis 50 km, keywords logistik">Beispiel: Praktikum</button>
+      </div>
+
+      <div class="row">
+        <input id="input" class="input" placeholder="z.B. Werkstudent um Gummersbach, Umkreis 50 km, 18 Stunden, keywords projektmanagement" />
+        <button id="sendBtn" class="send">Senden</button>
+      </div>
+
+      <div class="hint">
+        Tipp: Wenn zu wenig Treffer: Radius erhöhen (50–80 km) oder Keywords wie projektmanagement/logistik/produktion/lean/sap.
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
